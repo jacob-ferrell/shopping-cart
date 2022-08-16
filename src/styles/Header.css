@@ -1,0 +1,18 @@
+.header {
+    background-color: black;
+    color: purple;
+    font-size: 32px;
+    padding: 20px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.link-container {
+    display : flex;
+    gap: 75px;
+}
+.logo {
+    margin-left: 10%;
+}

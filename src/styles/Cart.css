@@ -1,0 +1,35 @@
+#root {
+    margin: 0px;
+}
+body {
+    margin: 0px;
+}
+.cart {
+    position: absolute;
+    right: 0px;
+    top: 77px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid black;
+}
+.cart-item-image {
+    height : 50px;
+    width: auto;
+}
+.change-quantity-container {
+    display: flex;
+}
+.cart-item {
+    display: flex;
+    gap: 20px;
+}
+
+.hidden {
+    opacity: 0%;
+    transition: .5s;
+    visibility: hidden;
+}
+.header-cart {
+    cursor: pointer;
+}
