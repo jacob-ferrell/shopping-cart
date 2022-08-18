@@ -2,7 +2,7 @@ import '../styles/Home.css';
 import { Link } from 'react-router-dom';
 
 
-const Home = props => {
+const Home = () => {
     return (
         <div className='home'>
             <div className='home-window'>

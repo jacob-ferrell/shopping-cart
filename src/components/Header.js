@@ -17,7 +17,7 @@ const linkStyle = {
                 <div>Retro Arcade</div>
                 </div>
                 <div className='link-container'>
-                    <div><Link style={linkStyle} to='/'>Home</Link></div>
+                    <div><Link style={linkStyle} to='/home'>Home</Link></div>
                     <div><Link style={linkStyle} to='/shop'>Shop</Link></div>
                     <div onClick={props.toggleCart} 
                     className='header-cart'>

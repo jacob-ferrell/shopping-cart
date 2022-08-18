@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -87,7 +87,8 @@ function App() {
       <BrowserRouter>
         <Header style={{ fontFamily: 'Exo 2' }} items={cart} cartCount={getCartCount} toggleCart={handleCartClick}/>
         <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path="/" element={ <Navigate to='/home' /> } />
+            <Route path='/home' element={<Home />} />
             <Route path='/shop' element={<Shop merch={merch}
             addToCart={addToCart}/>} />
         </Routes>
