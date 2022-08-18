@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/shopping-cart/static/css/main.a7b04862.css",
+    "main.js": "/shopping-cart/static/js/main.e15516af.js",
+    "static/media/dreamcast.png": "/shopping-cart/static/media/dreamcast.c4be719c43ceab4eac13.png",
+    "static/media/sega-saturn.jpg": "/shopping-cart/static/media/sega-saturn.8b628026350bec20dd5b.jpg",
+    "static/media/snes.webp": "/shopping-cart/static/media/snes.a0d1e122890b08e39333.webp",
+    "static/media/atari.jpg": "/shopping-cart/static/media/atari.931c58927aafba2280e0.jpg",
+    "static/media/nes.jpg": "/shopping-cart/static/media/nes.f0e6a76d89e82eabe64d.jpg",
+    "static/media/n64.jpg": "/shopping-cart/static/media/n64.c69a434e92695361cfef.jpg",
+    "index.html": "/shopping-cart/index.html",
+    "main.a7b04862.css.map": "/shopping-cart/static/css/main.a7b04862.css.map",
+    "main.e15516af.js.map": "/shopping-cart/static/js/main.e15516af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7b04862.css",
+    "static/js/main.e15516af.js"
+  ]
+}
