@@ -1,48 +1,55 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
 import Shop from './components/Shop';
 import Cart from './components/Cart';
+import merch from './merchandise';
 
 function App() {
 
   const [cart, setCart] = useState([]);
 
-  const [cartVisible, setCartVisibile] = useState(false)
-  
+  const [cartVisible, setCartVisible] = useState(false)
 
-  const merch = [
-    {
-      name: '10X Poop',
-      price: 420.69,
-      image: 'https://cdn.shopify.com/s/files/1/0702/7837/files/2017May14_3_1024x1024_094052a6-0243-4cd9-8584-ddb3f378e432_240x240.png?v=1646060577',
-      id: 'item001',
-    },
-    {
-      name: 'Pee',
-      price: 0.69,
-      image: 'https://dam.northwell.edu/m/1a44c3f331e1d917/Drupal--TheWell_what-urine-color-means_GettyImages-872424350.jpg',
-      id: 'item002',
-    }
-  ];
+  const cartDropdownRef = useRef(null);
+
+{ /*  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, false);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, false);
+    };
+  }, []);
+
+  const handleClickOutside = event => {
+    
+    console.log(cartDropdownRef.current, event.target, cartDropdownRef.current.dataset.visible)
+    if (cartDropdownRef.current && cartDropdownRef.current.dataset.visible && !cartDropdownRef.current.contains(event.target)) {
+      setCartVisible(false);
+    } 
+  } */}
 
   const addToCart = event => {
-    let item = merch.find(item => item.id == event.target.id);
-    const itemInCart = cart.find(item => item.id == event.target.id);
+    const itemid = event.target.dataset.itemid;
+    let item = merch.find(item => item.id == itemid);
+    const itemInCart = cart.find(item => item.id == itemid);
     if (itemInCart) {
-
       item = {
         ...item,
         quantity: itemInCart.quantity + 1
       }
+      let updatedCart = [...cart];
+      updatedCart[cart.findIndex(inCart => inCart.id == item.id)] = item;
+      setCart(updatedCart);
     } else {
       item = {
         ...item,
         quantity: 1
       }
+      setCart([...cart, item])
     }
-    setCart([...cart.filter(inCart => inCart.id != item.id), item])
+    
+    
   }
 
   const getCartCount = () => {
@@ -50,12 +57,12 @@ function App() {
   }
 
   const getTotal = () => {
-    return cart.map(e => e.quantity * e.price).reduce((a, b) => a + b, 0);
+    return cart.map(e => e.quantity * e.price).reduce((a, b) => a + b, 0).toFixed(2);
   }
 
   const changeQuantity = event => {
-    console.log(event.target.dataset.item)
-    let item = cart.find(item => item.id == event.target.dataset.item);
+    const itemid = event.target.dataset.item;
+    let item = cart.find(item => item.id == itemid);
     let changedQuantity = item.quantity + Number(event.target.dataset.value);
     if (changedQuantity < 0) changedQuantity = 0;
     item = {
@@ -64,25 +71,28 @@ function App() {
     }
     let updatedCart = [...cart];
     updatedCart[cart.findIndex(inCart => inCart.id == item.id)] = item;
-    setCart(updatedCart)
+    setCart(updatedCart.filter(item => item.quantity > 0))
   }
 
-  const toggleCart = event => setCartVisibile(!cartVisible);
+  const openCart = event => setCartVisible(true);
+
+  const closeCart = event => setCartVisible(false);
+
+  const handleCartClick = event => setCartVisible(!cartVisible);
   
-
-
+  
   return (
     <div className="App">
       
       <BrowserRouter>
-        <Header items={cart} cartCount={getCartCount} toggleCart={toggleCart}/>
+        <Header style={{ fontFamily: 'Exo 2' }} items={cart} cartCount={getCartCount} toggleCart={handleCartClick}/>
         <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/shop' element={<Shop merch={merch}
             addToCart={addToCart}/>} />
         </Routes>
         <Cart cart={cart} getTotal={getTotal} change={changeQuantity} isVisible={cartVisible}
-        toggleCart={toggleCart}/>
+        closeCart={closeCart} ref={cartDropdownRef}/>
       </BrowserRouter>
     </div>
   );

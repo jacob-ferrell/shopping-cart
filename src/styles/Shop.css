@@ -1,5 +1,9 @@
 .shop {
-    margin: 0px;
-    border: 1px solid black;
-    
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(92, 92, 92);
 }
+

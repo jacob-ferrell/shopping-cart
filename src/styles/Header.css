@@ -1,8 +1,11 @@
 .header {
     background-color: black;
-    color: purple;
+    color: rgb(255, 255, 255);
     font-size: 32px;
     padding: 20px;
+    font-family: 'Silkscreen' !important;
+
+
 }
 .navbar {
     display: flex;
@@ -12,7 +15,18 @@
 .link-container {
     display : flex;
     gap: 75px;
+    font-family: 'Silkscreen' !important;
 }
 .logo {
-    margin-left: 10%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-left: 3%;
+}
+.header-cart {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+   
 }

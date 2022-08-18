@@ -1,7 +1,8 @@
 import uniqid from 'uniqid'
 import '../styles/Cart.css'
+import React from 'react';
 
-const Cart = props => {
+const Cart = React.forwardRef((props, ref) => {
     const cartItems = props.cart.map(item => {
         return(
             <div key={uniqid()} className='cart-item'>
@@ -21,7 +22,8 @@ const Cart = props => {
         );
     })
     return (
-        <div className={ props.isVisible ? 'cart' : 'hidden'}>
+      props.isVisible &&   (
+        <div ref={ref} className='cart'>
             <h3>Your Cart</h3>
             <div className='cart-items-container'>
                 {cartItems}
@@ -29,10 +31,11 @@ const Cart = props => {
             <div className='total'>
                 <h4>Total: {'$' + props.getTotal()}</h4>
             </div>
-            <button className='checkout'>Checkout</button>
-            <button className='close' onClick={props.toggleCart}>Close</button>
+            <button className={props.cart.length ? 'checkout' : 'hidden'}>Checkout</button>
+            <button className='close' onClick={props.closeCart}>Close</button>
         </div>
+      )
     );
-}
+})
 
 export default Cart;

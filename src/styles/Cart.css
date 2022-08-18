@@ -1,6 +1,4 @@
-#root {
-    margin: 0px;
-}
+
 body {
     margin: 0px;
 }
@@ -12,10 +10,21 @@ body {
     flex-direction: column;
     gap: 20px;
     border: 1px solid black;
+    background-color: white;
+    padding: 8px;
+    min-width: 220px;
+    min-height: 331px;
+}
+.cart button {
+    background-color: black;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-family: 'Silkscreen';
 }
 .cart-item-image {
-    height : 50px;
-    width: auto;
+    height : 75px;
+    width: 75px;
 }
 .change-quantity-container {
     display: flex;
@@ -26,8 +35,6 @@ body {
 }
 
 .hidden {
-    opacity: 0%;
-    transition: .5s;
     visibility: hidden;
 }
 .header-cart {

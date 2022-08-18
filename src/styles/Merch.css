@@ -3,9 +3,12 @@
     flex-direction: column;
     font-weight: bold;
     width: fit-content;
+    height: fit-content;
     margin: 20px;
-    border: 1px solid black;
+    border: 3px solid black;
     padding: 8px;
+    background-color: white;
+    gap: 3px;
 }
 .merch-price {
     align-self: center;
@@ -13,4 +16,13 @@
 .merch-image {
     width: 240px;
     height: 174px;
+}
+
+.add-to-cart {
+    background-color:rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    font-family: 'Silkscreen';
 }

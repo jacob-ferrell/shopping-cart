@@ -62,7 +62,8 @@ const Merch = props => {
             </div>
             <div className='merch-name'>{props.name}</div>
             <div className='merch-price'>{'$' + props.price}</div>
-            <button id={props.itemId} onClick={props.addToCart}>Add To Cart</button>
+            <button data-itemid={props.itemId} onClick={props.addToCart}
+            className='add-to-cart'>Add To Cart</button>
         </div>
     );
 }
