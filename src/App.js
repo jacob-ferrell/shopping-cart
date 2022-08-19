@@ -87,7 +87,8 @@ function App() {
       <BrowserRouter>
         <Header style={{ fontFamily: 'Exo 2' }} items={cart} cartCount={getCartCount} toggleCart={handleCartClick}/>
         <Routes>
-            <Route path="/" element={ <Navigate to='/home' /> } />
+            <Route path={'/'}  element={ <Navigate to='/home' /> } />
+            <Route path={'/shopping-cart'}  element={ <Navigate to='/home' /> } />
             <Route path='/home' element={<Home />} />
             <Route path='/shop' element={<Shop merch={merch}
             addToCart={addToCart}/>} />
